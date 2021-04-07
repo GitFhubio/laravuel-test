@@ -6,7 +6,7 @@
                     <div class="card-header">Example Component</div>
 
                     <div class="card-body">
-                        I'm an example component.
+                        {{laptop}}
                     </div>
                 </div>
             </div>
@@ -16,6 +16,9 @@
 
 <script>
     export default {
+        props:{
+         laptop:String
+        },
         mounted() {
             console.log('Component mounted.')
         }

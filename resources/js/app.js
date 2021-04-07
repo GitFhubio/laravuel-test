@@ -27,6 +27,22 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+ import axios from 'axios';
+
 const app = new Vue({
     el: '#app',
+    data:function(){
+        return {
+         laptops:[]
+        }
+    },
+    mounted: function() {
+        axios
+        .get('http://127.0.0.1:8001/api/laptops')
+        .then((response) => {
+             this.laptops=response.data;
+             console.log(this.laptops);
+        });
+
+    }
 });

@@ -20,7 +20,7 @@
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-
+Vue.component('test-component', require('./components/TestComponent.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -38,9 +38,11 @@ const app = new Vue({
     },
     mounted: function() {
         axios
-        .get('http://127.0.0.1:8001/api/laptops')
+        .get('http://127.0.0.1:8000/api/laptops')
         .then((response) => {
-             this.laptops=response.data;
+             response.data.forEach(element => {
+            this.laptops.push(element);
+             });
              console.log(this.laptops);
         });
 

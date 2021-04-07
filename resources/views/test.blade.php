@@ -10,9 +10,9 @@
 </head>
 <body>
     <div id="app">
-  <example-component v-for="(laptop,index) in laptops" :laptop=laptop.model :key=index >
+  <test-component v-for="(laptop,index) in laptops" :laptop=laptop :key=index >
 
-  </example-component>
+  </test-component>
     </div>
 </body>
 </html>
